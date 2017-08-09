@@ -1,6 +1,6 @@
-# 在 Webpack 中使用 SeeUI Mobile 的例子
+# SeeUI Mobile Demo
 
-## 如何预览
+## 如何预览该项目
 
 ### 初始化
 
@@ -26,7 +26,7 @@ npm run build
 npm run lint
 ```
 
-## 如何配置 SeeUI Mobile
+## 如何在自己的 Webpack 项目中引用 SeeUI Mobile
 
 ### 安装依赖
 
