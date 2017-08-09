@@ -1,0 +1,54 @@
+{
+  "name": "seeui-mobile-demo",
+  "version": "1.0.0",
+  "description": "A Simple SeeUI Mobile Demo",
+  "main": "./src",
+  "scripts": {
+    "lint": "fecs src --type=js --reporter=baidu || true",
+    "build": "cross-env NODE_ENV=production webpack --config ./tool/webpack.build.babel.js",
+    "start": "npm run lint && webpack-dev-server --config ./tool/webpack.dev.babel.js --devtool eval --progress --inline --colors --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seeui/seeui-mobile-demo.git"
+  },
+  "keywords": [
+    "preact",
+    "seeui",
+    "javascript"
+  ],
+  "author": "cgzero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seeui/seeui-mobile-demo/issues"
+  },
+  "homepage": "https://github.com/seeui/seeui-mobile-demo",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.0.0",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.1",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.28.0",
+    "mockjs": "^1.0.1-beta3",
+    "nib": "^1.1.2",
+    "optimize-css-assets-webpack-plugin": "^3.0.0",
+    "style-loader": "^0.18.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^3.5.1",
+    "webpack-dev-server": "^2.4.5",
+    "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "preact": "^8.1.0",
+    "seeui-mobile": "^1.0.0"
+  }
+}
