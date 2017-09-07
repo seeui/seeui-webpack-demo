@@ -5,23 +5,34 @@
  */
 
 import {h, Component, render} from 'preact';
-import {Button, SingleDialog} from 'seeui-mobile';
+import {Button, SingleConfirm} from 'seeui-mobile';
 
-import './index.styl';
+import 'seeui-mobile/lib/index.css';
+import './index.css';
 
 export default class Index extends Component {
-    handleClick() {
-        console.log('clicked');
+    handleClick = () => {
+        SingleConfirm.show({
+            title: '标题',
+            children: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+            show: true,
+            maskClickClose: true,
+            onSubmit() {
+                SingleConfirm.hide();
+            },
+            onCancel() {
+                SingleConfirm.hide();
+            },
+            onHide() {
+                SingleConfirm.hide();
+            }
+        });
     }
     render() {
         return (
             <div className="container">
                 <h1>Hello World</h1>
-                <Button
-                    onClick={() => {
-                        this.handleClick();
-                    }}
-                >你好</Button>
+                <Button onClick={this.handleClick}>你好</Button>
             </div>
         );
     }

@@ -36,7 +36,7 @@ npm i seeui-mobile --save
 # 编译 seeui-mobile js（stage 可以任选）
 npm i babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-0 --save-dev
 # 编译 seeui-mobile 样式的依赖
-npm i style-loader css-loader stylus-loader file-loader stylus nib --save-dev
+npm i style-loader css-loader file-loader --save-dev
 ```
 
 ### 配置 Webpack
@@ -54,22 +54,12 @@ npm i style-loader css-loader stylus-loader file-loader stylus nib --save-dev
             },
             // compile seeui-mobile css
             {
-                test: /\.styl$/,
-                loader: [
-                    'style-loader'
-                    'css-loader',
-                    {
-                        loader: 'stylus-loader',
-                        options: {
-                            // stylus 引入 nib 库
-                            // 文档：http://tj.github.io/nib/
-                            // 代码：https://github.com/tj/nib
-                            use: [nib()]
-                        }
-                    }
-                ],
-                // 如果不想影响项目中其他 css，可以设置为只对 seeui-mobile 中的 css 做编译处理
-                include: [path.resolve(__dirname, '../node_modules/seeui-mobile')]
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader'],
+                    publicPath: './'
+                })
             },
             // compile seeui-mobile font
             {
