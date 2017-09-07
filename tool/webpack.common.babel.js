@@ -5,13 +5,13 @@
 
 import webpack from 'webpack';
 import path from 'path';
-import nib from 'nib';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
-    entry: [
-        path.resolve(__dirname, '../src/index.js')
-    ],
+    entry: {
+        pc: path.resolve(__dirname, '../src/pc.js'),
+        mobile: path.resolve(__dirname, '../src/mobile.js')
+    },
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name].[hash:8].js',
@@ -35,15 +35,16 @@ export default {
                 // 小于 8k 的图片将会被转成 base64
                 loader: ['url-loader?limit=8192&name=img/[name].[hash:8].[ext]']
             },
-            // compile seeui-mobile js
+            // compile seeui & seeui-mobile js
             {
                 test: /\.js$/,
                 loader: ['babel-loader'],
                 include: [
+                    path.resolve(__dirname, '../node_modules/seeui'),
                     path.resolve(__dirname, '../node_modules/seeui-mobile')
                 ]
             },
-            // compile seeui-mobile css
+            // compile seeui & seeui-mobile css
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
@@ -52,7 +53,7 @@ export default {
                     publicPath: './'
                 })
             },
-            // compile seeui-mobile font
+            // compile seeui & seeui-mobile font
             {
                 test: /\.(svg|eot|ttf|woff)$/,
                 loader: ['file-loader?name=font/[name].[hash:8].[ext]']

@@ -1,4 +1,4 @@
-# SeeUI Mobile Demo
+# SeeUI & SeeUI Mobile Demo
 
 ## 如何预览该项目
 
@@ -26,16 +26,16 @@ npm run build
 npm run lint
 ```
 
-## 如何在自己的 Webpack 项目中引用 SeeUI Mobile
+## 如何在自己的 Webpack 项目中引用 SeeUI & SeeUI Mobile
 
 ### 安装依赖
 
 ```bash
-# seeui-mobile
-npm i seeui-mobile --save
-# 编译 seeui-mobile js（stage 可以任选）
+# seeui or seeui-mobile 任选一个安装
+npm i seeui seeui-mobile --save
+# 编译 js（stage 可以任选）
 npm i babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-0 --save-dev
-# 编译 seeui-mobile 样式的依赖
+# 编译样式的依赖
 npm i style-loader css-loader file-loader --save-dev
 ```
 
@@ -45,14 +45,15 @@ npm i style-loader css-loader file-loader --save-dev
 {
     module: {
         loaders: [
-            // compile seeui-mobile js
+            // compile seeui & seeui-mobile js
             {
                 test: /\.js$/,
                 loader: ['babel-loader'],
-                // 如果不想影响项目中其他 js，可以设置为只对 seeui-mobile 中的 js 做编译处理
+                // 如果不想影响项目中其他 js，可以设置为只对 seeui & seeui-mobile 中的 js 做编译处理
+                include: [path.resolve(__dirname, '../node_modules/seeui')],
                 include: [path.resolve(__dirname, '../node_modules/seeui-mobile')]
             },
-            // compile seeui-mobile css
+            // compile seeui & seeui-mobile css
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
@@ -61,11 +62,12 @@ npm i style-loader css-loader file-loader --save-dev
                     publicPath: './'
                 })
             },
-            // compile seeui-mobile font
+            // compile seeui & seeui-mobile font
             {
                 test: /\.(svg|eot|ttf|woff)$/,
                 loader: ['file-loader'],
-                // 如果不想影响项目中其他 font，可以设置为只对 seeui-mobile 中的 font 做编译处理
+                // 如果不想影响项目中其他 font，可以设置为只对 seeui & seeui-mobile 中的 font 做编译处理
+                include: [path.resolve(__dirname, '../node_modules/seeui')]
                 include: [path.resolve(__dirname, '../node_modules/seeui-mobile')]
             }
         ]

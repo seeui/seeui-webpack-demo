@@ -1,7 +1,7 @@
 {
-  "name": "seeui-mobile-webpack-demo",
+  "name": "seeui-webpack-demo",
   "version": "1.0.0",
-  "description": "A Simple SeeUI Mobile Demo",
+  "description": "A Simple SeeUI & SeeUI Mobile Demo",
   "main": "./src",
   "scripts": {
     "lint": "fecs src --type=js --reporter=baidu || true",
@@ -45,6 +45,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "preact": "^8.1.0",
+    "seeui": "^0.1.8",
     "seeui-mobile": "^1.0.0"
   }
 }

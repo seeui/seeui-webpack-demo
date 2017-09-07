@@ -8,7 +8,7 @@ import {h, Component, render} from 'preact';
 import {Button, SingleConfirm} from 'seeui-mobile';
 
 import 'seeui-mobile/lib/index.css';
-import './index.css';
+import './mobile.css';
 
 export default class Index extends Component {
     handleClick = () => {
